@@ -16,15 +16,16 @@
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% else %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
               role="button" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.email %> <span class="caret"></span>
+              <%= image_tag avatar_url(current_user), class: "img-circle avatar_small" %>&nbsp;
+              <%= current_user.fullname %> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a href="#">Manage Listing</a></li>
               <li><a href="#">List Your Space</a></li>
               <li><a href="#">Your Reservation</a></li>
-              <li><a href="#">Your Trip</a></li>
+              <li><a href="#">Your Trip</a></li>av
               <li role="separator" class="divider"></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
