@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'ea2e8d3e850a000fa3af2c4fb327914c7a68ad0243e9c2f78bac5feb609e9cae2bf750f5547956230dac4708b29ef621e8f76daed9120226823c4e24fd12c958'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'Yo @ yayayay <no-reply@yayaya.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -142,7 +142,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
