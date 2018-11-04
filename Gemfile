@@ -39,3 +39,5 @@ gem 'mysql2', '~> 0.5.2'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'pry-byebug'
+# 脆弱性対策
+gem "loofah", ">= 2.2.3"
