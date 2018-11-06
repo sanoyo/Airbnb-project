@@ -1,24 +1,24 @@
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
   before_action :set_room, except: [:index, :new, :create]
-  before_action :authentication_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @rooms = current_user.room
+    @rooms = current_user.rooms
   end
 
   def new
-    @room = current_user.room.build
+    @room = current_user.rooms.build
   end
 
   def create
-    @room = current_user.room.build(room_params)
+    @room = current_user.rooms.build(room_params)
     if @room.save
       flash[:notice] = "Saved"
+      redirect_to listing_room_path(@room), notice: "Saved..."
     else
       flash[:notice] = "Something went wrong"
+      render :new
     end
-    redirect_back(fall_back_location: request.referer)
-
   end
 
   def show
@@ -43,11 +43,12 @@ class RoomController < ApplicationController
   end
 
   def update
-    if @room.update
-      redirect_to :back, notice: "Saved"
+    if @room.update(room_params)
+      flash[:notice] = "Saved"
     else
-
+      flash[:notice] = "Something went wrong"
     end
+    redirect_back(fallback_location: request.referer)
   end
 
   private
