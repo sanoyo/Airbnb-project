@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    			  cotrollers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
   resources :users, only: [:show]
-  resources :rooms, only: [:edit] do
+  resources :rooms, except: [:edit] do
     member do
       get 'listing'
       get 'pricing'
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get 'photo_upload'
       get 'amenities'
       get 'location'
+      get 'preload'
+      get 'preview'
     end
   end
 end
