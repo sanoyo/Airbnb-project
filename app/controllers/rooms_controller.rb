@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  protect_from_forgery :except => [:create]
   before_action :set_room, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
@@ -59,7 +60,7 @@ class RoomsController < ApplicationController
     end
 
     def is_authorised
-      redirect_to root_path, alert: "You don't have permission" unless current_user == @room.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_user.id == @room.user_id
     end
 
     def room_params
