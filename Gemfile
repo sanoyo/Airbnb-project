@@ -41,4 +41,4 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'pry-byebug'
 # 脆弱性対策
 gem "loofah", ">= 2.2.3"
-gem 'paperclip', '~> 5.1.0'
+gem "paperclip", ">= 5.2.0"
