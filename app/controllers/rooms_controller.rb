@@ -24,6 +24,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @photos = @room.photos
   end
 
   def listing
@@ -46,7 +47,6 @@ class RoomsController < ApplicationController
   end
 
   def update
-
     new_params = room_params
     new_params = room_params.merge(active: true) if is_ready_room
     if @room.update(room_params)
