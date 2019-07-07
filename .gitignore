@@ -31,3 +31,4 @@
 /config/master.key
 config/environments/development.rb
 public/system/
+app/assets/images/

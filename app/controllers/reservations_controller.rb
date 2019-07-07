@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,7 +7,7 @@ class ReservationsController < ApplicationController
     room = Room.find(params[:room_id])
 
     if current_user == room.user
-      flash[:alert] = "ご自身の部屋は予約できません"
+      flash[:alert] = 'ご自身の部屋は予約できません'
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])
@@ -17,13 +19,14 @@ class ReservationsController < ApplicationController
       @reservation.total = room.price * days
       @reservation.save
 
-      flash[:notice] = "予約完了しました!"
+      flash[:notice] = '予約完了しました!'
     end
     redirect_to room
   end
 
   private
-    def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date)
-    end
+
+  def reservation_params
+    params.require(:reservation).permit(:start_date, :end_date)
+  end
 end

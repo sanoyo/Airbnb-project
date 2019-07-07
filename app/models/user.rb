@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -5,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable
 
-  validates :fullname, presence: true, length: {maximum: 50}
+  validates :fullname, presence: true, length: { maximum: 50 }
 
   has_many :rooms
   has_many :reservations
@@ -18,7 +20,7 @@ class User < ApplicationRecord
     else
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+        user.password = Devise.friendly_token[0, 20]
         user.fullname = auth.info.name
         user.image = auth.info.image
         user.uid = auth.uid

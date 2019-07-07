@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
-    before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
+  protected
 
-    protected
-
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-        devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :phone_number, :description])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[fullname phone_number description])
+  end
 end

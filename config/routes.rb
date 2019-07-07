@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'pages#home'
 
   devise_for :users,
-   			      path: '',
-   			      path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-   			      cotrollers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+             path: '',
+             path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration' },
+             cotrollers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
 
   resources :users, only: [:show]
   resources :rooms, except: [:edit] do
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
       get 'preload'
       get 'preview'
     end
-    resources :photos, only: [:create, :destroy]
+    resources :photos, only: %i[create destroy]
     resources :reservations, only: [:create]
   end
 end

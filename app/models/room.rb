@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Room < ApplicationRecord
   belongs_to :user
   has_many :photos
@@ -13,10 +15,10 @@ class Room < ApplicationRecord
   validates :bath_room, presence: true
 
   def cover_photo(size)
-    if self.photos.length > 0
-      self.photos[0].image.url(size)
+    if !photos.empty?
+      photos[0].image.url(size)
     else
-      "blank.jpg"
+      'blank.jpg'
     end
   end
 end
