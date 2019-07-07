@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_081705) do
+ActiveRecord::Schema.define(version: 2019_07_07_103940) do
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2019_07_07_081705) do
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.index ["room_id"], name: "index_photos_on_room_id"
+  end
+
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "price"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_reservations_on_room_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,5 +83,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_081705) do
   end
 
   add_foreign_key "photos", "rooms"
+  add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "users"
   add_foreign_key "rooms", "users"
 end
