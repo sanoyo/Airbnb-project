@@ -36,7 +36,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.5.2'
 gem 'omniauth', '~> 1.6'
