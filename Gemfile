@@ -7,7 +7,7 @@ ruby '2.5.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
-gem 'geocoder', '~> 1.4'
+gem 'geocoder', '~> 1.6'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-ui-rails', '~> 5.0'
 gem 'puma', '~> 3.11'
