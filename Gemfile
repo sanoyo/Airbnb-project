@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'geocoder', '~> 1.4'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-ui-rails', '~> 5.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 5.2.1'
 gem 'rubocop', require: false
 gem 'sass-rails', '~> 5.0'
